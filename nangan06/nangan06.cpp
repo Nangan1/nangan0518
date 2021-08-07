@@ -1,46 +1,27 @@
-﻿
 #include <iostream>
 using namespace std;
 
-void out (double a, double b, char c)
+double out(double a, double b, char c)
 {
     double a1 = 0, b1 = b;
     int i = 1;
     if (c != '%') {
         switch (c) {
         case'+':
-            a1 = a + b;
+            a = a + b;
             break;
         case'-':
-            a1 = a - b;
+            a = a - b;
             break;
         case'*':
-            a1 = a * b;
+            a = a * b;
             break;
         case'/':
-            a1 = a / b;
+            a = a / b;
             break;
         }
     }
-    else {
-        if (a > b) {
-            while (a > b) {
-                i++;
-                b = b * i;
-            }
-            if (i == 2) {
-                b = b1 * (i - 1.0);
-            }
-            else {
-                b = b1 * i;
-            }
-            a1 = a - b;
-        }
-        else if (a < b) {
-            a1 = a;
-        }
-    }
-    cout << a1;
+    return a;
 }
 
 int factorial(int a)
@@ -52,10 +33,10 @@ int factorial(int a)
     return a2;
 }
 
-
 int main()
 {
-    double a, b;
+    double a;
+    double b;
     char c;
 
     do {
@@ -66,7 +47,17 @@ int main()
         else
         {
             cin >> b;
-            out(a, b, c);
+            while (1) {
+                a = out(a, b, c);
+                cin >> c;
+                if (c != '=') {
+                    cin >> b;
+                }
+                else {
+                    break;
+                }
+            }
+            cout << a;
         }
     } while (c != 'e');
     return 0;
