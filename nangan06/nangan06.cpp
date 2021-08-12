@@ -1,4 +1,4 @@
-#include <iostream>
+﻿#include <iostream>
 using namespace std;
 
 double out(double a, double b, char c)
@@ -29,7 +29,7 @@ int factorial(int a)
     int i, a2 = 1;
     for (i = 1; a >= i; i++) {
         a2 = i * a2;
-    }
+}
     return a2;
 }
 
