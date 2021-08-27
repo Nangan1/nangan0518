@@ -1,67 +1,25 @@
 ﻿#include <iostream>
 using namespace std;
 
-class calc {
-
-public:
-    double result;
-    
-    double add(double a) {
-        result += a;
-        return result;
-    }
-    double sub(double a) {
-        result -= a;
-        return result;
-    }
-    double mul(double a) {
-        result *= a;
-        return result;
-    }
-    double div(double a) {
-        result /= a;
-        return result;
-    }
-};
-
 int main()
 {
-    calc calc;
-    double a = 0, b;
-    char c;
-    while (true) {
-        c = 0;
-        cin >> a;
-        calc.result = (a);
-        while (true) {
-            cin >> c;
-            if (c == 'c') {
-                break;
-            }
-            if (c == '=') {
-                cout << a;
-                continue;
-            }
-            if (c == 'e') {
-                return 0;
-            }
-            cin >> b;
-            switch (c) {
-            case '+':
-                a = calc.add(b);
-                break;
-            case '-':
-                a = calc.sub(b);
-                break;
-            case '*':
-                a = calc.mul(b);
-                break;
-            case '/':
-                a = calc.div(b);
-                break;
-            }
-        }
+	int a[3], b = 0, i, s;
+	for (i = 0; i <= 2; i++)
+		cin >> a[i];
 
-    }
-    return 0;
+	s = a[0];
+	a[0] = a[1];
+	a[1] = a[2];
+	a[2] = s;
+
+	cin >> b;
+	for (i = 0; i <= 2; i++) {
+		while (a[i] <= b)
+			b -= a[i];
+	}
+	if (b != 0)
+		cout << 0;
+	else
+		cout << 1;
+	return 0;
 }
