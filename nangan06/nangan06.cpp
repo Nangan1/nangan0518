@@ -1,25 +1,18 @@
 ﻿#include <iostream>
 using namespace std;
 
+int swap(int a, int b) {
+	cout << a << ' ' << b << ' ';
+	if (a < b)
+		swap(b, a);
+	return b, a;
+}
+
+
 int main()
 {
-	int a[3], b = 0, i, s;
-	for (i = 0; i <= 2; i++)
-		cin >> a[i];
-
-	s = a[0];
-	a[0] = a[1];
-	a[1] = a[2];
-	a[2] = s;
-
-	cin >> b;
-	for (i = 0; i <= 2; i++) {
-		while (a[i] <= b)
-			b -= a[i];
-	}
-	if (b != 0)
-		cout << 0;
-	else
-		cout << 1;
+	int a = 1;
+	int b = 2;
+	swap(a, b);
 	return 0;
 }
